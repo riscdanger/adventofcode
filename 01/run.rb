@@ -5,11 +5,6 @@ class Dial
     @num = n
   end
 
-  # is the dial set at zero?
-  def zero?
-    @num.zero?
-  end
-
   # returns the number of zeroes
   def rotate(rot)
     if rot.left?
@@ -22,7 +17,7 @@ class Dial
       @num += rot.num
       @num -= 100 while @num >= 100
     end
-    zero? ? 1 : 0
+    @num.zero? ? 1 : 0
   end
 end
 

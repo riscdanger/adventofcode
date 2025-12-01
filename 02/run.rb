@@ -5,11 +5,6 @@ class Dial
     @num = n
   end
 
-  # is the dial set at zero?
-  def zero?
-    @num.zero?
-  end
-
   # returns the number of zeroes
   def rotate(rot)
     zeroes = 0
