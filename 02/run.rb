@@ -12,17 +12,31 @@ class Dial
 
   # returns the number of zeroes
   def rotate(rot)
+    zeroes = 0
+    start = @num
+
     if rot.left?
       @num -= rot.num
       if @num.negative?
-        @num += 100 while @num < -100
+        while @num < -100
+          zeroes += 1
+          @num += 100
+        end
         @num = 100 + @num
+
+        zeroes += 1 if !start.zero?
       end
+
+      zeroes += 1 if @num.zero?
     elsif rot.right?
       @num += rot.num
-      @num -= 100 while @num >= 100
+      while @num >= 100
+        @num -= 100
+        zeroes += 1
+      end
     end
-    zero? ? 1 : 0
+
+    zeroes
   end
 end
 
